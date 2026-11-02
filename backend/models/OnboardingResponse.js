@@ -18,41 +18,30 @@ const onboardingResponseSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    // Step 1: Personal Details (Screen 3)
+    // Screen 3: Basic Info
     step1: {
-      phone: { type: String, default: '' },
-      dateOfBirth: { type: String, default: '' },
-      gender: { type: String, default: '' },
+      fullName: { type: String, default: '' },
+      username: { type: String, default: '' },
+      describeRole: { type: String, default: '' },
+      location: { type: String, default: '' },
+      knowUsSource: { type: String, default: '' },
     },
-    // Step 2: Address Information (Screen 4)
+    // Screen 4: Main Goals
     step2: {
-      streetAddress: { type: String, default: '' },
-      city: { type: String, default: '' },
-      postalCode: { type: String, default: '' },
-      country: { type: String, default: '' },
+      goals: [{ type: String }],
     },
-    // Step 3: Professional Background (Screen 5)
+    // Screen 5: Value Proposition Acknowledged
     step3: {
-      currentTitle: { type: String, default: '' },
-      company: { type: String, default: '' },
-      yearsExperience: { type: String, default: '' },
+      viewedInfo: { type: Boolean, default: true },
     },
-    // Step 4: Skills & Tech Preferences (Screen 6)
+    // Screens 6 & 7: Skills Selection
     step4: {
-      primarySkill: { type: String, default: '' },
-      frameworkPreferences: [{ type: String }],
-      githubProfile: { type: String, default: '' },
+      selectedSkills: [{ type: String }],
     },
-    // Step 5: Work Availability & Preferences (Screen 7)
+    // Screen 8: Profile Photo & Job Seeking Status
     step5: {
-      workMode: { type: String, default: '' }, // e.g., Remote, Hybrid, Onsite
-      noticePeriod: { type: String, default: '' },
-      expectedCompensation: { type: String, default: '' },
-    },
-    // Step 6: Review & Additional Notes (Screen 8)
-    step6: {
-      additionalNotes: { type: String, default: '' },
-      agreedToTerms: { type: Boolean, default: false },
+      profilePhotoUrl: { type: String, default: '' },
+      activelySeeking: { type: String, default: 'Yes, actively seeking' },
     },
   },
   { timestamps: true }
